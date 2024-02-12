@@ -1,0 +1,21 @@
+clc;
+close all;
+clear all;
+
+epsilonR=input('Enter the value of dielectric constant =');
+fR=input('Enter the value of resonanting frequency =' );
+fR1=fR*10^9;
+h=input('Enter the value of height of substrate =');
+mu0=4*pi*10^-7; % permeability
+epsilon0=8.854187817*10^-12;
+v=2.9979*10^8;
+v1=30;
+W=((v/(2*fR1))*(sqrt(2/(epsilonR+1))))*100;
+Ereff=((epsilonR+1)/2)+((epsilonR-1)/2)*1/(sqrt(1+12*(h/W)));
+deltaL=h*(0.412)*(((Ereff+0.3)*(W/h+0.264))/((Ereff-0.258)*((W/h)+0.8)));
+L= (v1/((2*fR)*(sqrt(Ereff)))-2*deltaL);
+Le=L+(2*deltaL);
+Dielctric_Constant= epsilonR
+Resonanting_Frequency=fR
+Height_of_substrate=h
+W,Ereff,L,Le
